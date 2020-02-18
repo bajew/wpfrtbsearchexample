@@ -1,0 +1,60 @@
+﻿<Window x:Class="EditorTests_Core.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EditorTests_Core"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="RichTextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <RichTextBox x:Name="richText" Grid.Column="0" 
+                     SpellCheck.IsEnabled="True" 
+                     VerticalScrollBarVisibility="Auto" 
+                     HorizontalScrollBarVisibility="Auto" 
+                     KeyUp="richText_KeyUp"
+                     KeyDown="richText_KeyDown">
+            <FlowDocument Name="flowDoc">
+                <Paragraph>
+                    This is flow content and you can
+                    <Bold>edit me!</Bold>
+
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="txSearch" KeyDown="txSearch_KeyDown"></TextBox>
+            <Button Click="Button_Click">Search</Button>
+            <Label Name="lbCount" Content="Some Label"/>
+
+            <Button Click="Button_Click_1">Gen Text</Button>
+        </StackPanel>            
+        
+    </Grid>
+</Window>
